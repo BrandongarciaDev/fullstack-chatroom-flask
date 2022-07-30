@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
+
+    {% block links %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- =============== HEADER =============== -->
+    {% block header %}
+    <header class="header">
+        <div class="header__brand ">
+            <a href="{{ url_for('home.main_content') }}">
+                <i class="ri-door-open-fill"></i>
+                <span>ChatRoom</span>
+            </a>
+        </div>
+        <nav class="header__navbar">
+            <ul class="navbar__list">
+                <li class="list__item">
+                    <a class="list_link" href="{{ url_for('home.main_content') }}">
+                        <i class="ri-home-line"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a class="list_link" href="{{ url_for('home.testing') }}">
+                        <i class="ri-add-circle-fill"></i>
+                        Create
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a class="list_link" href="rooms">
+                        <i class="ri-search-line"></i>
+                        Rooms
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a class="list_link" href="{{ url_for('user_profile.profile') }}">
+                        <i class="ri-user-fill"></i>
+                        Profile
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <i class="ri-notification-2-fill action"></i>
+            <i class="ri-moon-fill action"></i>
+        </div>
+    </header>
+    {% endblock %}
+
+    <!-- =============== MAIN CONTENT =============== -->
+    {% block main %}
+
+    {% endblock %}
+
+    <!-- =============== FOOTER =============== -->
+    {% block footer %}
+
+    {% endblock %}
+
+    <!-- =============== MAIN SCRIPTS =============== -->
+    {% block scripts %}{% endblock %}
+    <script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
+</body>
+
+
+
+</html>
