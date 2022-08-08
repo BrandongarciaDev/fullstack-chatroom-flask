@@ -18,6 +18,10 @@
 
 .form div{
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .form input{
@@ -25,6 +29,17 @@
     border-radius: 5px;
     background-color: var(--secondary-color);
     height: 35px;
+    color: #FFFFFF;
+}
+
+.form .submit{
+    cursor: pointer;
+    background-color: var(--fous-color);
+    font-family: var(--text-font);
+}
+
+.form i{
+     color: var(--fous-color);
 }
 
 @media screen and (max-width: 500px) {
@@ -39,16 +54,9 @@
         font-size: 1rem;
     }
 
-    .form div{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
 
     .form i{
         font-size: 2rem;
-        color: var(--fous-color);
         padding: .8rem;
 
     }
@@ -56,15 +64,48 @@
     .form .submit{
         width: 70%;
         margin-top: 2rem;
-        font-family: var(--text-font);
         font-size: 1.3rem;
         color: var(--text-color);
         height: 40px;
-        background-color: var(--fous-color);
-        cursor: pointer;
     }
 
     .form__login-option{
         margin-top: 3rem;
     }
+}
+
+@media screen and (min-width: 500px){
+    .form__container{
+        margin-top: 10rem;
+    }
+
+    .form{
+        height: 500px;
+        width: 500px;
+    }
+
+    .form input{
+        width: 80%;
+        height: 40px;
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .form i{
+        font-size: 2.5rem;
+        margin-right: .6rem;
+    }
+
+    .form .submit{
+        height: 50px;
+    }
+
+}
+
+.flashes {
+    padding: .7rem;
+}
+
+.flashes li{
+    color: red;
+
 }

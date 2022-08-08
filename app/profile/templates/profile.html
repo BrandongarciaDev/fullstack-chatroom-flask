@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block links %}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('user_profile.static', filename='styles/profile.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='styles/main_content.css') }}">
+
+{% endblock %}
+
+{% block main %}
+
+    <div class="profile">
+        <div class="profile__settings">
+
+        </div>
+        <div class="profile__image-container">
+            <img src="{{ url_for('user_profile.static', filename='images/{0}'.format(current_user.profile_image)) }}" alt="profile image"> </img>
+            <span>{{ current_user.name }}</span>
+        </div>
+        <h2 class="profile__title"> My rooms </h2>
+
+        {% include 'chatrooms_section.html' %}
+    </div>
+
+{% endblock %}
+
+

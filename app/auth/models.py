@@ -6,12 +6,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login_manager
 
 
+
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.INTEGER, primary_key=True, nullable=False)
     name = db.Column(db.VARCHAR(100), index=True, nullable=False)
     email = db.Column(db.VARCHAR(120), index=True, nullable=False)
+    profile_image = db.Column(db.VARCHAR(250))
     password_hash = db.Column(db.VARCHAR(150), nullable=False)
+    rooms_pool = db.relationship('RoomsPool', backref='User')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
