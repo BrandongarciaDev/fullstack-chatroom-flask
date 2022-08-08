@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block links %}
+    <link rel="stylesheet" href="{{ url_for('rooms.static', filename='styles/create_room.css') }}">
+{% endblock %}
+
+{% block main %}
+
+    <form class="create_room" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="room_title">
+            {{ form.title.label }}
+            {{ form.title }}
+        </div>
+
+        <div class="room_image">
+            {{ form.image.label(class="custom-file-upload") }}
+            {{ form.image }}
+        </div>
+
+        <div class="room_description">
+            {{  form.description.label}}
+            {{ form.description }}
+        </div>
+
+        <div class="room_type-container">
+            {{ form.csrf_token }}
+            {% for room in form.rooms_types %}
+
+            <div class="room_type">
+                {% if room.id == 'rooms_types-0' %}
+                    <div class="content">
+                        <i class="ri-global-line"></i>
+                        <ul>
+                            <li>Chatroom wil be public</li>
+                            <li>Everybody can join to this room</li>
+                            <li>Chatroom will appear at global chat</li>
+                            <li>External people can see the chat</li>
+                        </ul>
+                    </div>
+
+                 {% else %}
+                    <div class="content">
+
+                        <i class="ri-lock-fill"></i>
+                        <ul>
+                            <li>Chatroom wil be private</li>
+                            <li>Only people with key can join to this chat room</li>
+                            <li>Chatroom will be show only if you are in member </li>
+                            <li>External people can not see chat</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                {{ room}}
+
+
+                {{ room.label(class="custom-radio") }}
+            </div>
+            {% endfor %}
+
+            <div class="room__category">
+                {% for category in form.category %}
+                    <div>
+                    {{ category }}
+                    {{ category.label }}
+
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {{ form.submit(class="create_room-submit") }}
+
+
+    </form>
+
+{% endblock main %}
+
+R

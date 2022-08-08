@@ -7,7 +7,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'fasdfsrlkr24231'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = False
-
+    ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
     @staticmethod
     def init_app(app):
         pass

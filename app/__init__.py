@@ -22,6 +22,7 @@ def create_app(config_name):
     login_manager.login_view = 'auth.register'
     login_manager.login_message = "You must be logged in to access this page."
     migrate = Migrate(app, db)
+
     from app.rooms import models
     from app.auth import models
 

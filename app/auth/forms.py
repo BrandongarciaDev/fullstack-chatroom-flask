@@ -1,7 +1,7 @@
 # absolute modules and libraries
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, EmailField, SubmitField, validators, ValidationError
-
+from flask import flash
 # local modules and libraries
 from .models import User
 
@@ -16,12 +16,12 @@ class Register(FlaskForm):
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
-            print('Error email')
+            flash('This email is already in use')
             raise ValidationError('This email is already in use')
 
     def validate_username(self, field):
         if User.query.filter_by(name=field.data).first():
-            print('Error username')
+            flash('This username is already in user')
             raise ValidationError('This username is already in user')
 
 

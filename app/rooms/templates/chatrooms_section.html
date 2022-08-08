@@ -1,0 +1,31 @@
+{% block links %}
+
+    <link rel="stylesheet" href="{{ url_for('rooms.static', filename='styles/chatroomcontainer.css') }}">
+
+{% endblock links %}
+
+{% block chatrooms %}
+        <div class="chatrooms__container">
+            {% for room in rooms %}
+                <div class="chatrooms__container-chatroom" >
+                    <img class="chatroom__img" src="{{ url_for('rooms.static', filename='images/{0}'.format(room.image_url))}}">
+                    <div class="chatroom__content">
+                        <h4 class="chatroom__content-title">{{ room.title }}</h4>
+                        <p class="chatroom__content-description">{{ room.description }}</p>
+                    </div>
+                    <div class="chatroom__about">
+                        <!-- icons likes, join, etc -->
+                        <a href="#"><i class="ri-chat-2-fill"></i><span>0</span></a>
+                        <a href="#"> <i class="ri-team-fill"></i><span>0</span></a>
+                        {% if not room in user_rooms %}
+                        <form action="/" method="POST">
+                            <i class="ri-add-circle-fill"></i>
+                            <input id="{{ room.id }}" type="submit" class="categories_element" value="Join" name="{{ room.id }}">
+                        </form>
+                        {% endif %}
+                        <a href="{{ url_for('rooms.room', room_id=room.id) }}"><i class="ri-door-open-fill"></i><span>chat</span></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock chatrooms %}

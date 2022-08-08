@@ -1,0 +1,289 @@
+
+.create_room{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.room_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.room_title > input{
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+
+}
+
+.room_title > label{
+    color:  #777;
+}
+
+.room_image{
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.room_image input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    color: #FFF;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.room_description{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.room_description > label{
+    color:  #777;
+    padding: 1rem;
+}
+
+.room_description > textarea{
+    resize: none;
+    background-color: var(--secondary-color);
+    font-family: var(--text-font);
+    color: #ffffff;
+
+}
+
+.room_type-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.room_type input[type="radio"]{
+    display: none;
+
+}
+
+
+
+.room_public{
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.custom-radio{
+    color: #000;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.room_type  label{
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+}
+
+
+
+.room_type .content ul{
+    column-gap: 100px;
+    line-height: 30px;
+    font-size: .8rem;
+    margin-top: 1rem;
+}
+
+
+.room_type .content ul li::before{
+    content: "\2022";
+    color: var(--title-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.room_type .content i{
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-top: 1rem;
+
+}
+
+
+.room_type input:checked + label {
+    background-color: var(--fous-color);
+}
+
+
+.room_type .content{
+    position: absolute;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.create_room{
+    padding: 0 0 8rem 0;
+
+}
+
+.create_room .create_room-submit{
+    background: var(--fous-color);
+    margin-top: 3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--title-font);
+    font-size: var(--text-size);
+}
+
+.room__category {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--fous-color);
+}
+
+
+.room_type{
+    margin-top: 3rem;
+    width: 300px;
+}
+
+.room_type  label{
+    height: 300px;
+}
+
+.room_type .content{
+    margin-top: 2.5rem;
+    width: 50%;
+    margin-left: 2rem;
+    font-family: var(--text-font);
+}
+.room__category{
+    max-width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 500px){
+
+    .room_title > label{
+        margin-bottom: 1rem;
+
+    }
+
+    .room_title > input{
+        width: 300px;
+        height: 2rem;
+        padding: 1.5rem;
+        font-family: var(--text-font);
+        color: #ffffff;
+        font-size: 1rem;
+    }
+    .room_image{
+        width: 400px;
+        height: 10rem;
+        background-color: var(--secondary-color);
+    }
+    .room_description > textarea{
+        width: 400px;
+        height: 10rem;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+
+    .create_room .create_room-submit{
+        width: 350px;
+        height: 60px;
+    }
+
+
+}
+
+@media screen and (min-width: 500px){
+    .create_room{
+        width: 800px;
+        margin: 8rem auto;
+    }
+
+     .room_title > input{
+         width: 500px;
+         height: 30px;
+         margin-top: 1rem;
+         padding: 1rem;
+     }
+
+     .room_image{
+        width: 600px;
+        height: 10rem;
+        background-color: var(--secondary-color);
+     }
+
+     .room_description > textarea{
+        width: 600px;
+        height: 15rem;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+     }
+
+     .room_type{
+         width: 400px;
+     }
+
+      .room_type .content{
+        margin-top: 2.5rem;
+        width: 400px;
+        margin-left: 0;
+    }
+
+      .room__category{
+          height: 300px;
+      }
+
+    .create_room .create_room-submit{
+        width: 450px;
+        height: 60px;
+    }
+
+}

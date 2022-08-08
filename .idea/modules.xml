@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/chatRoom.iml" filepath="$PROJECT_DIR$/.idea/chatRoom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fullstack-chatroom-flask.iml" filepath="$PROJECT_DIR$/.idea/fullstack-chatroom-flask.iml" />
     </modules>
   </component>
 </project>

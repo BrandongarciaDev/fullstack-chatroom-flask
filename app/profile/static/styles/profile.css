@@ -1,0 +1,31 @@
+.profile{
+
+}
+
+.profile__image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__image-container img{
+    border-radius: 100px;
+    border: 4px #1580CA solid;
+}
+
+.profile__image-container span{
+    margin-top: .9rem;
+    font-family: var(--title-font);
+    font-size: var(--text-size);
+}
+
+
+.profile__title{
+    margin-top: 2rem;
+    text-align: center;
+    font-family: var(--title-font);
+    padding: .5rem;
+    background:linear-gradient(var(--secondary-color),var(--secondary-color)) bottom /* left or right or else */ no-repeat;
+    background-size:50% 3px;
+}
