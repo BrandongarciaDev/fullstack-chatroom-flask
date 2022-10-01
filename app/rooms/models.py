@@ -1,4 +1,5 @@
 # local modules and libraries
+from datetime import datetime
 from app import db
 
 
@@ -22,12 +23,13 @@ class Room(db.Model):
     image_url = db.Column(db.TEXT)
     likes = db.Column(db.INTEGER)
     room_key = db.Column(db.VARCHAR(40), unique=True)
-    is_private = db.Column(db.Boolean, nullable=False , default=False)
+    is_private = db.Column(db.Boolean, nullable=False, default=False)
     category = db.Column(db.INTEGER,
                          db.ForeignKey('category.id', ondelete='cascade',
                                        onupdate='cascade'),
                          nullable=False)
     rooms_pool = db.relationship('RoomsPool', backref='Room')
+    messages = db.relationship('Messages', backref='Room')
 
     def __repr__(self):
         return f'Room: {self.title}'
@@ -57,3 +59,11 @@ class RoomsPool(db.Model):
                    user_id : {self.user_id}
                    role_id: {self.role_id}   
         """
+
+
+class Messages(db.Model):
+    id = db.Column(db.INTEGER, nullable=False, primary_key=True)
+    message = db.Column(db.TEXT, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    from_room = db.Column(db.VARCHAR, db.ForeignKey('room.id', on_delete='restrict'), nullable=False)
+    belongs_to = db.Column(db.INTEGER, db.ForeignKey('user.id', on_delete='restrict'), nullable=False)

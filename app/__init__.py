@@ -3,14 +3,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-
+from flask_socketio import SocketIO
 # local modules and libraries
 from configs import config
 
 # globals
 db = SQLAlchemy()
 login_manager = LoginManager()
-
+socketio =  SocketIO()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -22,7 +22,7 @@ def create_app(config_name):
     login_manager.login_view = 'auth.register'
     login_manager.login_message = "You must be logged in to access this page."
     migrate = Migrate(app, db)
-
+    socketio.init_app(app)
     from app.rooms import models
     from app.auth import models
 

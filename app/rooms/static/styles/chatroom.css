@@ -1,0 +1,14 @@
+
+
+
+
+.user__image{
+    border-radius: 100%;
+    float: left;
+    width:  70px;
+    height: 70px;
+    object-fit: cover;
+    margin-left: 2rem;
+    border: 3px solid #1580CA;
+    cursor: pointer;
+}
